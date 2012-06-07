@@ -1,6 +1,6 @@
 A Twitter mass-following script
 
-A dead simple little script to mass follow Twitter users whose account names match a given search term.  Pleas don't use it for evil.
+A dead simple little script to mass follow Twitter users whose account names match a given search term.  Please don't use it for evil.
 
 You'll need to have API credentails to use the script.  Go to https://dev.twitter.com and register an application (fictitious or otherwise).  Make sure the application has read/write access.
 
