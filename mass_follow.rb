@@ -41,13 +41,19 @@ page_fetch_count = 0
 cur_page = options[:start_page]
 
 while page_fetch_count < options[:max_pages]
-  puts "searching '#{options[:search_term]}', page #{cur_page}"
+  puts "searching \"#{options[:search_term]}\", page #{cur_page}"
 
   users = Twitter.user_search(options[:search_term],  :page => cur_page)
 
   users.each do |user|
-    puts "following #{user.attrs["screen_name"]}"
-    Twitter.follow(user)
+    
+    begin 
+      Twitter.follow(user)
+      puts "following #{user.attrs["screen_name"]}"
+    rescue Twitter::Error::Forbidden => e
+      puts "warning: attempted refollow of user \"#{user.attrs['screen_name']}\""
+    end
+
   end
 
   cur_page += 1
