@@ -51,7 +51,7 @@ while page_fetch_count < options[:max_pages]
       Twitter.follow(user)
       puts "following #{user.attrs["screen_name"]}"
     rescue Twitter::Error::Forbidden => e
-      puts "warning: attempted refollow of user \"#{user.attrs['screen_name']}\""
+      puts "warning: error raised attempting to follow user\"#{user.attrs['screen_name']}\": #{e.message}"
     end
 
   end
